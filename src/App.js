@@ -36,7 +36,7 @@ class App extends Component {
     const linearScale = d3.scaleLinear().domain([0, 12]).range([8, 100]);
     const svg = d3.select(".svg_parent").attr("width", width).attr("height", height);
     svg.selectAll("text").data(data, d=>d[0]).join(
-      enter => enter.append("text").text(d => d[0]).attr("y", "50%").attr("x", (d, i) => horizontalScale(i)).attr("font-size", 0).transition().duration(1000).attr("font-size", (d) => `${linearScale(d[1])}px`),
+      enter => enter.append("text").text(d => d[0]).attr("y", "50%").attr("x", (d, i) => horizontalScale(i)).attr("font-size", 0).attr("style", "font-family: serif").transition().duration(1000).attr("font-size", (d) => `${linearScale(d[1])}px`),
       update => update.transition().duration(1000).attr("x", (d,i) => horizontalScale(i)).attr("font-size", (d) => `${linearScale(d[1])}px`),
       exit => exit.remove(),
     );
